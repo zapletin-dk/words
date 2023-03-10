@@ -14,15 +14,15 @@ public class StringUtil {
                     counter++;
                 }
             }
-            return counter;
-        } else { return 0; }
+        }
+        return counter;
     }
 
     public static String[] splitWords(String text) {
         if (text != null && !text.isBlank()) {
             String string = Pattern.compile("[,.;: ?!]+").matcher(text).replaceAll(" ").strip();
             return string.isBlank() ? null : string.split(" ");
-        } else {return null; }
+        } else { return null; }
     }
 
     public static String convertPath(String path, boolean toWin){
@@ -70,7 +70,7 @@ public class StringUtil {
         String str;
         if (words != null){
             str = Arrays.stream(words)
-                    .filter(role -> !role.isBlank())
+                    .filter(string-> !string.isBlank())
                     .collect(Collectors.joining(", "));
             System.out.println(str);
             return str.isBlank() ? null : "[" + str + "]";
